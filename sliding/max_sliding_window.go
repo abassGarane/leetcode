@@ -5,22 +5,20 @@ import (
 )
 
 func MaxSlidingWindow(nums []int, k int) []int {
+	left := 0
 	if len(nums) == 0 {
 		return []int{}
 	}
 	if len(nums) <= k {
 		return []int{slices.Max(nums)}
 	}
-	window, res := []int{}, []int{}
-	for right := 0; right < len(nums); right++ {
-		window = append(window, nums[right])
-		if len(window) < k {
-			continue
+	res := []int{}
+
+	for right := k - 1; right < len(nums); right++ {
+		for right-left+1 > k {
+			left++
 		}
-		for len(window) > k {
-			window = window[1:]
-		}
-		window_max := slices.Max(window)
+		window_max := slices.Max(nums[left : right+1])
 		res = append(res, window_max)
 	}
 	return res
