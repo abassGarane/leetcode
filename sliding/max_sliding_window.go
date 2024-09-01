@@ -1,25 +1,23 @@
 package sliding
 
-import (
-	"slices"
-)
-
 func MaxSlidingWindow(nums []int, k int) []int {
-	left := 0
-	if len(nums) == 0 {
-		return []int{}
-	}
-	if len(nums) <= k {
-		return []int{slices.Max(nums)}
-	}
+	deque := []int{}
 	res := []int{}
-
-	for right := k - 1; right < len(nums); right++ {
-		for right-left+1 > k {
+	left, right := 0, 0
+	for right < len(nums) {
+		for len(deque) > 0 && nums[right] > nums[deque[len(deque)-1]] {
+			// pop if smaller elem in deque
+			deque = deque[:len(deque)-1]
+		}
+		deque = append(deque, right)
+		if left > deque[0] {
+			deque = deque[1:]
+		}
+		if right+1 >= k {
+			res = append(res, nums[deque[0]])
 			left++
 		}
-		window_max := slices.Max(nums[left : right+1])
-		res = append(res, window_max)
+		right++
 	}
 	return res
 }
