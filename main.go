@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-	s := "10101"
-	k := 1
-
-	res := sliding.CountKConstraintSubstrings(s, k)
-	if res != 12 {
-		fmt.Printf("expected 12 got %d\n", res)
+	s := "ADOBECODEBANC"
+	t := "ABC"
+	expected := "BANC"
+	res := sliding.MinWindow(s, t)
+	if res != expected {
+		fmt.Printf("expected %s got %s\n", expected, res)
 	} else {
 		println("got it")
 		println(res)
