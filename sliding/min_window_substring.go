@@ -7,39 +7,44 @@ import "math"
 // If there is no such substring, return the empty string "".
 // The testcases will be generated such that the answer is unique.
 func MinWindow(s string, t string) string {
-	var answer = ""
-	if len(s) < len(t) {
-		return answer
-	}
-	window := [128]int{}
+	// Create a map to count the frequency of characters in t
+	mapT := make([]int, 128)
 	for _, c := range t {
-		window[c]++
+		mapT[c]++
 	}
-	min_length := math.MaxInt64
-	left, right := 0, 0
-	counter := 0
-	for right < len(s) {
-		if left >= len(s) {
-			return answer
+
+	// Initialize variables
+	counter := len(t)
+	begin, end := 0, 0
+	d := math.MaxInt
+	head := 0
+
+	// Iterate through the string s
+	for end < len(s) {
+		if mapT[s[end]] > 0 {
+			counter--
 		}
-		curr := s[right]
-		window[curr]--
-		if window[curr] >= 0 {
-			counter++
-		}
-		for counter == len(t) {
-			curr_min := right - left + 1
-			if curr_min < min_length {
-				min_length = curr_min
-				answer = s[left : right+1]
+		mapT[s[end]]--
+		end++
+
+		// Shrink the window from the left if all characters are matched
+		for counter == 0 {
+			if end-begin < d {
+				d = end - begin
+				head = begin
 			}
-			v := window[s[left]]
-			if v >= 0 {
-				counter--
+			// add the left elem to the freq map
+			mapT[s[begin]]++
+			// if positive, increase the counter because we just lost an element that we need to be in substr
+			if mapT[s[begin]] > 0 {
+				counter++
 			}
-			left++
+			begin++
 		}
-		right++
 	}
-	return answer
+
+	if d == math.MaxInt {
+		return ""
+	}
+	return s[head : head+d]
 }
