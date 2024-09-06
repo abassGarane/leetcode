@@ -45,9 +45,6 @@ func (this *MinStack) Pop() {
 }
 
 func (this *MinStack) Top() int {
-	if len(this.items) < 1 {
-		return 0
-	}
 	return this.items[len(this.items)-1]
 }
 
