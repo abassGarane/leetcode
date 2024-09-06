@@ -3,19 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/abassGarane/leetcode/sliding"
+	"github.com/abassGarane/leetcode/stack"
 )
 
 func main() {
-	s := "ADOBECODEBANC"
-	t := "ABC"
-	expected := "BANC"
-	res := sliding.MinWindow(s, t)
-	if res != expected {
-		fmt.Printf("expected %s got %s\n", expected, res)
-	} else {
-		println("got it")
-		println(res)
-	}
 
+	s := "()[]{}"
+	res := stack.IsValid(s)
+	if res != true {
+		fmt.Println("wrong answer dude")
+	} else {
+		println("right answer dude")
+	}
 }
