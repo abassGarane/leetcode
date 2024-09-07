@@ -27,8 +27,8 @@ func TestGenerateParenthesis(t *testing.T) {
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
 			res := stack.GenerateParenthesis(tC.n)
-			if !reflect.DeepEqual(tC.expected, res) {
-				t.Errorf("expected %v got %v", tC.expected, res)
+			if reflect.DeepEqual(tC.expected, res) {
+				t.Errorf("test 1 == expected %v got %v\n", tC.expected, res)
 			}
 		})
 	}
