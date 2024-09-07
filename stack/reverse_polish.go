@@ -16,7 +16,7 @@ import "strconv"
 // The answer and all the intermediate calculations can be represented in a 32-bit integer.
 
 func EvalRPN(tokens []string) int {
-	stack := Stack{}
+	stack := Stack[int]{}
 	for _, c := range tokens {
 		if c == "*" || c == "/" || c == "-" || c == "+" {
 			first, _ := stack.Pop()
