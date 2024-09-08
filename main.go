@@ -1,18 +1,9 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/abassGarane/leetcode/stack"
 )
 
 func main() {
-
-	s := "()[]{}"
-	res := stack.IsValid(s)
-	if res != true {
-		fmt.Println("wrong answer dude")
-	} else {
-		println("right answer dude")
-	}
+	_ = stack.CarFleet(12, []int{10, 8, 0, 5, 3}, []int{2, 4, 1, 1, 3})
 }
