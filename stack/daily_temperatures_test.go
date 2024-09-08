@@ -1,7 +1,6 @@
 package stack_test
 
 import (
-	"fmt"
 	"slices"
 	"testing"
 
@@ -23,7 +22,6 @@ func TestDailyTemperatures(t *testing.T) {
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
 			res := stack.DailyTemperatures(tC.temperatures)
-			fmt.Println(res)
 			if !slices.Equal(res, tC.expected) {
 				t.Errorf("wanted %v, got %v", tC.expected, res)
 			}
