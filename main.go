@@ -1,9 +1,8 @@
 package main
 
-import (
-	"github.com/abassGarane/leetcode/stack"
-)
+import ()
 
 func main() {
-	_ = stack.CarFleet(12, []int{10, 8, 0, 5, 3}, []int{2, 4, 1, 1, 3})
+	num1, num2 := 3, 2
+	println(num1 / num2)
 }
