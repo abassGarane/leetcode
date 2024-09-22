@@ -5,19 +5,5 @@ import (
 )
 
 func main() {
-	head := &linked_list.ListNode{
-		Val:  1,
-		Next: nil,
-	}
-	head.Push(&linked_list.ListNode{
-		Val:  2,
-		Next: nil,
-	})
-	head.Push(&linked_list.ListNode{
-		Val:  3,
-		Next: nil,
-	})
-
-	head.Print()
-	linked_list.Reverse(head).Print()
+	linked_list.ToLinkedList([]int{1, 2, 4, 4}).Print()
 }
