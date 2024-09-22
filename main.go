@@ -1,19 +1,23 @@
 package main
 
 import (
-	"log"
-
-	binarysearch "github.com/abassGarane/leetcode/binary_search"
+	"github.com/abassGarane/leetcode/linked_list"
 )
 
 func main() {
-	num1 := []int{1, 3}
-	num2 := []int{2}
-	medium := 2.00
-	res := binarysearch.FindMedianSortedArrays(num1, num2)
-	if res != medium {
-		log.Printf("wanted %f got %f\n", medium, res)
-	} else {
-		log.Printf("medium found at %f\n", res)
+	head := &linked_list.ListNode{
+		Val:  1,
+		Next: nil,
 	}
+	head.Push(&linked_list.ListNode{
+		Val:  2,
+		Next: nil,
+	})
+	head.Push(&linked_list.ListNode{
+		Val:  3,
+		Next: nil,
+	})
+
+	head.Print()
+	linked_list.Reverse(head).Print()
 }
