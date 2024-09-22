@@ -18,6 +18,11 @@ func TestReverse(t *testing.T) {
 			head_list: []int{1, 2, 3, 4},
 			reversed:  []int{4, 3, 2, 1},
 		},
+		{
+			desc:      "empty array",
+			head_list: []int{},
+			reversed:  []int{},
+		},
 	}
 	for _, tC := range testCases {
 		var head *linked_list.ListNode
