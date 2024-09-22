@@ -14,6 +14,22 @@ func (ln *ListNode) Traverse() []int {
 	return elements
 }
 
+func ToLinkedList(list []int) *ListNode {
+	var head *ListNode
+	for _, v := range list {
+		node := &ListNode{
+			Val:  v,
+			Next: nil,
+		}
+		if head == nil {
+			head = node
+			continue
+		}
+		head.Push(node)
+	}
+	return head
+}
+
 func (ln *ListNode) Print() {
 	items := ln.Traverse()
 	for _, v := range items {

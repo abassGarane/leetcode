@@ -25,20 +25,8 @@ func TestReverse(t *testing.T) {
 		},
 	}
 	for _, tC := range testCases {
-		var head *linked_list.ListNode
-		for _, v := range tC.head_list {
-			node := &linked_list.ListNode{
-				Val:  v,
-				Next: nil,
-			}
-			if head == nil {
-				head = node
-				continue
-			}
-			head.Push(node)
-		}
 		t.Run(tC.desc, func(t *testing.T) {
-			assert.Equal(t, tC.reversed, linked_list.Reverse(head).Traverse())
+			assert.Equal(t, tC.reversed, linked_list.Reverse(linked_list.ToLinkedList(tC.head_list)).Traverse())
 		})
 	}
 }
