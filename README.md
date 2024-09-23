@@ -6,5 +6,9 @@
 - [x] Two Pointer
 - [x] Sliding window
 - [x] Stack
-- [ ] Binary search
+- [x] Binary search
 - [ ] Linked List
+- [ ] Trees
+- [ ] Tries
+- [ ] Heap/Priority Queue
+- [ ] Backtrackinx
